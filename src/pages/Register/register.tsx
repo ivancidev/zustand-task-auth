@@ -1,24 +1,19 @@
 import React, { useState } from "react";
 import { useAuthStore } from "../../store/useAuthStore";
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../../config/firebaseConfig";
 import { Form } from "../../components/form/form";
+import { registerUserWithEmailAndPassword } from "../../services/authService";
 
-export default function Login() {
+export default function Register() {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
-  const login = useAuthStore((state) => state.login);
+  const register = useAuthStore((state) => state.register);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const userCredential = await signInWithEmailAndPassword(
-        auth,
-        email,
-        password
-      );
-      login(userCredential.user);
-      console.log("User logged in successfully");
+      const user = await registerUserWithEmailAndPassword(email, password);
+      register(user);
+      console.log("User registered successfully");
     } catch (error) {
       console.error(error);
     }
@@ -26,12 +21,12 @@ export default function Login() {
 
   return (
     <Form
-      title="Login"
+      title="Register"
       email={email}
       password={password}
       onChangeEmail={(e) => setEmail(e.target.value)}
-      handleSubmit={(e) => handleSubmit(e)}
       onChangePassword={(e) => setPassword(e.target.value)}
+      handleSubmit={handleSubmit}
     />
   );
 }
