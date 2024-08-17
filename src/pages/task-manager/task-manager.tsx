@@ -25,7 +25,7 @@ export default function TaskManager() {
 
   return (
     <>
-      <h1>Task Manager</h1>
+      <h1 className="text-white">Task Manager</h1>
       <form className="form-inline">
         <div className="input-group mb-2 mr-sm-2">
           <input
@@ -38,7 +38,7 @@ export default function TaskManager() {
           />
         </div>
 
-        <div className="form-check mb-2 mr-sm-2">
+        <div className="form-check">
           <input
             className="form-check-input"
             type="checkbox"
