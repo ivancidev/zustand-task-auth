@@ -1,0 +1,11 @@
+.task-item {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 12px;
+}
+
+.task-actions {
+    display: flex;
+    justify-content: space-between;
+    width: 30vh;
+}
