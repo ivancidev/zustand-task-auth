@@ -1,4 +1,6 @@
-import "./styles/form.css"
+import "./styles/form.css";
+import InputField from "../inputs/input-field";
+import Button from "../buttons/submit-button";
 
 interface FormProps {
   title: string;
@@ -7,6 +9,7 @@ interface FormProps {
   onChangeEmail: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onChangePassword: (e: React.ChangeEvent<HTMLInputElement>) => void;
   handleSubmit: (e: React.FormEvent) => void;
+  children?: React.ReactNode;
 }
 
 export const Form = ({
@@ -15,40 +18,32 @@ export const Form = ({
   onChangeEmail,
   handleSubmit,
   onChangePassword,
-  title
+  title,
+  children,
 }: FormProps) => {
   return (
-    <form>
-      <h1>{title}</h1>
-      <div className="form-group">
-        <label>Email address</label>
-        <input
-          type="email"
-          className="form-control"
+    <div className="form-container">
+      <form className="form">
+        <h1>{title}</h1>
+        <InputField
+          label="Email address"
           placeholder="Enter email"
+          type="email"
           value={email}
           onChange={onChangeEmail}
         />
-      </div>
-      <div className="form-group">
-        <label>Password</label>
-        <input
+        <InputField
+          placeholder="Enter password"
           type="password"
-          className="form-control"
-          placeholder="Password"
           value={password}
           onChange={onChangePassword}
+          label="Password"
         />
-      </div>
-      <div className="d-flex justify-content-center">
-        <button
-          type="submit"
-          className="btn btn-primary"
-          onClick={handleSubmit}
-        >
-          Submit
-        </button>
-      </div>
-    </form>
+        {children}
+        <div className="section-actions d-flex justify-content-center">
+          <Button onClick={handleSubmit}>Submit</Button>
+        </div>
+      </form>
+    </div>
   );
 };
