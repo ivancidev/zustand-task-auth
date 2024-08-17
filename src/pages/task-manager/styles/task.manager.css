@@ -1,0 +1,22 @@
+.form-inline {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    width: 80vh;
+}
+
+.div-btn {
+    display: flex;
+    justify-content: center;
+    width: 30vh;
+}
+
+.form-check {
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+
+    input {
+        margin-right: 10px;
+    }
+}
