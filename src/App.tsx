@@ -1,18 +1,26 @@
-import Login from "./pages/Login/Login"
-import "./App.css"
-import Register from "./pages/Register/register"
-import TaskManager from "./pages/task-manager/task-manager"
+import Login from "./pages/Login/Login";
+import "./App.css";
+import Register from "./pages/Register/register";
+import TaskManager from "./pages/task-manager/task-manager";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Login />,
+  },
+  {
+    path: "/task-manager",
+    element: <TaskManager />,
+  },
+  {
+    path: "/register",
+    element: <Register />,
+  },
+]);
 
 function App() {
-  
-  return (
-    <>
-      {/* <Login /> */}
-      {/* <Register /> */}
-      <TaskManager />
-    </>
-  )
+  return <RouterProvider router={router} />;
 }
 
-export default App
+export default App;
