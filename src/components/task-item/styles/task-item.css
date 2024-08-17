@@ -1,11 +1,19 @@
 .task-item {
     display: flex;
     justify-content: space-between;
-    margin-top: 12px;
+    align-items: center;
+    margin-top: 30px;
+    color: white;
+    width: 80vh;
 }
 
 .task-actions {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     width: 30vh;
+}
+
+.task-button {
+    margin-bottom: 20px;
 }
