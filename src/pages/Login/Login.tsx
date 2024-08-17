@@ -3,11 +3,13 @@ import { useAuthStore } from "../../store/useAuthStore";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../config/firebaseConfig";
 import { Form } from "../../components/form/form";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const login = useAuthStore((state) => state.login);
+  const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -18,7 +20,7 @@ export default function Login() {
         password
       );
       login(userCredential.user);
-      console.log("User logged in successfully");
+      navigate("/task-manager");
     } catch (error) {
       console.error(error);
     }
