@@ -6,7 +6,7 @@ export const ListTasks = () => {
   return (
     <>
       {tasks.length === 0 ? (
-        <h3>No tasks available</h3>
+        <h3 className="text-white">No tasks available</h3>
       ) : (
         tasks.map((task) => (
           <TaskItem
