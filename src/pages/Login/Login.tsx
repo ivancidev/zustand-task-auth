@@ -3,7 +3,8 @@ import { useAuthStore } from "../../store/useAuthStore";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../config/firebaseConfig";
 import { Form } from "../../components/form/form";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import "./styles/login.css";
 
 export default function Login() {
   const [email, setEmail] = useState<string>("");
@@ -30,7 +31,7 @@ export default function Login() {
     if (isAuthenticated) {
       navigate("/task-manager");
     }
-  }, [isAuthenticated, navigate])
+  }, [isAuthenticated, navigate]);
 
   return (
     <Form
@@ -40,6 +41,8 @@ export default function Login() {
       onChangeEmail={(e) => setEmail(e.target.value)}
       handleSubmit={(e) => handleSubmit(e)}
       onChangePassword={(e) => setPassword(e.target.value)}
-    />
+    >
+      <Link to={"/register"}>¿You don't have an account?</Link>
+    </Form>
   );
 }
