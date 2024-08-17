@@ -3,6 +3,7 @@ import "./App.css";
 import Register from "./pages/Register/register";
 import TaskManager from "./pages/task-manager/task-manager";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import ProtectedRoute from "./routes/protected--route/protected-route";
 
 const router = createBrowserRouter([
   {
@@ -11,7 +12,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/task-manager",
-    element: <TaskManager />,
+    element: (
+      <ProtectedRoute>
+        <TaskManager />
+      </ProtectedRoute>
+  ),
   },
   {
     path: "/register",
