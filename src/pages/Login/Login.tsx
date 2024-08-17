@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useAuthStore } from "../../store/useAuthStore";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../config/firebaseConfig";
@@ -10,6 +10,7 @@ export default function Login() {
   const [password, setPassword] = useState<string>("");
   const login = useAuthStore((state) => state.login);
   const navigate = useNavigate();
+  const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -20,11 +21,16 @@ export default function Login() {
         password
       );
       login(userCredential.user);
-      navigate("/task-manager");
     } catch (error) {
       console.error(error);
     }
   };
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate("/task-manager");
+    }
+  }, [isAuthenticated, navigate])
 
   return (
     <Form
