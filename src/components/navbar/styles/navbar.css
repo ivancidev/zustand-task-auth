@@ -1,0 +1,14 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(255, 255, 255);
+}
+
+.navbar-brand-container {
+  margin-left: 27px;
+}
+
+.navbar-actions {
+  margin-right: 30px;
+}

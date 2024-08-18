@@ -1,0 +1,28 @@
+.form-inline {
+    display: flex;
+    justify-content: center;
+    width: 75vh;
+    color: white;
+    align-items: center;
+}
+
+.div-btn {
+    display: flex;
+    justify-content: center;
+    width: 30vh;
+    margin-bottom: 30px;
+    margin-left: 12px;
+}
+
+.form-check {
+    margin-left: 20px;
+    display: flex;
+    input {
+        margin-right: 10px;
+    }
+
+    label {
+        margin-right: 20px;
+        margin-bottom: 20px;
+    }
+}
